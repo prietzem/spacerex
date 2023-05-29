@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 
 Context context;
 SharedPreferences sharedPreferences;
+import processing.sound.*;
+
 SoundFile[] sounds;
 
 
