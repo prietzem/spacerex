@@ -9,6 +9,7 @@ int[] settings; //global settings register, gets loaded from save files and edit
 PFont font; //custom font
 Window window;
 BackGround bg; //background animation with stars and rocks flying arround
+SoundHandler soundHandler; //handles all sounds of game
 
 void setup (){
   context = getContext(); // Get the Context object
@@ -16,6 +17,7 @@ void setup (){
   sharedPreferences = context.getSharedPreferences("spacerex", Context.MODE_PRIVATE); // Get SharedPreferences object
 
   bg = new BackGround(); //not every window draws it so it gets drawn in the window, not in main draw loop
+  soundHandler = new SoundHandler();
 
   setWindow(1); //Enters MainMenue to start
 

@@ -181,6 +181,7 @@ class Player{
 
     shots.add(new Shot(pos.x,pos.y,st*1,st*6,col,PVector.fromAngle(angle - PI*0.5).normalize(),shot_speed));
     updateStats("shotsFired");
+    soundHandler.playShoot();
   }
 
   private PVector[] getReferencePoints(){
