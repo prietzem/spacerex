@@ -2,14 +2,14 @@ import processing.sound.*;
 
 class SoundHandler{
   float amp;
-  Soundfile[] sounds;
+  SoundFile[] sounds;
   
 
-  SoundHandler(){
+  SoundHandler(SoundFile[] sounds){
     amp = 1;
-    sounds = new Soundfile[1];
     
-    sounds[0] = new Soundfile(this, "shoot.mp3"); //shoot sound
+    this.sounds = sounds;
+    
     this.setAmp(amp);
   }
 
