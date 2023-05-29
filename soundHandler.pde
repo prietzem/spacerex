@@ -8,18 +8,19 @@ class SoundHandler{
   SoundHandler(SoundFile[] sounds){
     amp = 1;
     
-    this.sounds = sounds;
+    this.sounds = new SoundFile[1];
+    this.sounds[0] = sounds[0];
     
     this.setAmp(amp);
   }
 
-  playShoot(){
+  void playShoot(){
     sounds[0].play();
   }
 
   void setAmp(float amp){
-    this.amp = amp
-    for (sound:this.sounds){
+    this.amp = amp;
+    for (SoundFile sound:this.sounds){
       sound.amp(this.amp);
     }
   }

@@ -21,6 +21,7 @@ void setup (){
   sharedPreferences = context.getSharedPreferences("spacerex", Context.MODE_PRIVATE); // Get SharedPreferences object
 
   bg = new BackGround(); //not every window draws it so it gets drawn in the window, not in main draw loop
+  sounds = new SoundFile[1];
   sounds[0] = new SoundFile(this,"sample-3s.mp3");
   soundHandler = new SoundHandler(sounds);
 
