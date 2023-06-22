@@ -20,11 +20,11 @@ class EnemyC{
   }
 
   void show(){
-    stroke(255);
     strokeWeight(30);
-    fill(5,5,25);
-
-    point(this.pos.x, this.pos.y);
+    pushStyle();
+      fill(5,5,25);
+      point(this.pos.x, this.pos.y);
+    popStyle();
   }
 
   void update(){

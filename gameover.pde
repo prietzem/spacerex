@@ -6,14 +6,14 @@ class Gameover implements Window{
 
   Gameover(){
     this.newAchievement = new Button(width*2/3+width/28, height/2-height/30, width/14, height/15, "MOVE");
-    this.endWave = getWave()-1;
-    setWave(1);
-    updateStats("finishedGames");
+    this.endWave = getStat("wave")-1;
+    setStat("wave", 1);
+    clearPlayerInventory();
+    updateStat("finishedGames");
     this.highscore = getStat("highscore");
-    updateStats("highscore", max(this.endWave, this.highscore));
+    setStat("highscore", max(this.endWave, this.highscore));
     this.achievementCompleted = TestAchievements();
     this.newAchievement.setActive(this.achievementCompleted);
-    setWave(1);
     this.setup();
   }
 
@@ -24,23 +24,23 @@ class Gameover implements Window{
   public void draw(){
     background(0);
     bg.drawStars();
-    fill(255);
-    textSize(height/13);
-    textAlign(CENTER);
-    if(this.highscore < this.endWave){
-      text("NEW HIGHSCORE: "+this.endWave, width/2, height/3);
-    }
-    else{
-      text("YOU SURVIVED: " +this.endWave, width/2, height/3);
-    }
-    text("HIGHSCORE: " +this.highscore, width/2, height*2/3);
+    pushStyle();
+      fill(255);
+      textSize(height/13);
+      if(this.highscore < this.endWave){
+        text("NEW HIGHSCORE: "+this.endWave, width/2, height/3);
+      }
+      else{
+        text("YOU SURVIVED: " +this.endWave, width/2, height/3);
+      }
+      text("HIGHSCORE: " +this.highscore, width/2, height*2/3);
 
-    if(this.achievementCompleted){
-      textAlign(RIGHT);
-      textSize(height/26);
-      text("Achievement unlocked", width*2/3, height/2);
-      textAlign(CENTER);
-    }
+      if(this.achievementCompleted){
+        textAlign(RIGHT);
+        textSize(height/26);
+        text("Achievement unlocked", width*2/3, height/2);
+      }
+    popStyle();
 
     this.newAchievement.show();
 
@@ -60,6 +60,7 @@ class Gameover implements Window{
       setWindow(10);
     }
     else if(coolDown >= 120){
+      stroke(255);
       setWindow(1);
     }
 
